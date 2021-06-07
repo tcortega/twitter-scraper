@@ -1,4 +1,4 @@
-# TSDX User Guide
+<!-- # TSDX User Guide
 
 Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
 
@@ -100,4 +100,4 @@ For vanilla CSS, you can include it at the root directory and add it to the `fil
 
 ## Publishing to NPM
 
-We recommend using [np](https://github.com/sindresorhus/np).
+We recommend using [np](https://github.com/sindresorhus/np). -->

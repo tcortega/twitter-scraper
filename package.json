@@ -31,21 +31,21 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "twitterscraper",
+  "name": "@tcortega/twitter-scraper",
   "description": "Twitter Scraper & Media Downloader. Scrape info from any tweet.",
   "author": "tcortega",
-  "module": "dist/twitterscraper.esm.js",
+  "module": "dist/@tcortega/twitter-scraper.esm.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tcortega/twitter-scraper.git"
   },
   "size-limit": [
     {
-      "path": "dist/twitterscraper.cjs.production.min.js",
+      "path": "dist/@tcortega/twitter-scraper.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/twitterscraper.esm.js",
+      "path": "dist/@tcortega/twitter-scraper.esm.js",
       "limit": "10 KB"
     }
   ],
