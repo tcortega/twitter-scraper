@@ -1,6 +1,6 @@
 import { ITemporaryMediaObject } from '../typings';
 
-export default class Mapper {
+export class Mapper {
   public static mapMediaObject(mediaObj: any): ITemporaryMediaObject {
     const mediaUrlList: any = [];
 
