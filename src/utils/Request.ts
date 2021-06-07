@@ -7,7 +7,7 @@ export default class Request {
   public static async get(url: string, customHeaders?: Object): Promise<Response> {
     let requestHeaders = this.defaultHeaders;
     if (customHeaders) requestHeaders = { ...this.defaultHeaders, ...customHeaders };
-    
+
     return await fetch(url, {
       headers: requestHeaders,
     });

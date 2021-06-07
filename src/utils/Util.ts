@@ -19,21 +19,21 @@ export default class Util {
     return responseData.guest_token;
   }
 
-  public static filterTweetData(tweetData: any) : ITweetData {
+  public static filterTweetData(tweetData: any): ITweetData {
     // TO-DO: find a better way to do this.
     let returnObject: ITweetData = {
       id: tweetData.id_str,
       created_at: tweetData.created_at,
-      description: (tweetData.text ? tweetData.text : tweetData.full_text),
+      description: tweetData.text ? tweetData.text : tweetData.full_text,
       isMedia: tweetData.hasOwnProperty('extended_entities'),
       favorite_count: tweetData.favorite_count,
       retweet_count: tweetData.retweet_count,
       reply_count: tweetData.reply_count,
-      quote_count: tweetData.quote_count
+      quote_count: tweetData.quote_count,
     };
 
     if (returnObject.isMedia) {
-      returnObject = {...returnObject, ...Mapper.mapMediaObject(tweetData.extended_entities.media)}
+      returnObject = { ...returnObject, ...Mapper.mapMediaObject(tweetData.extended_entities.media) };
     }
 
     return returnObject;

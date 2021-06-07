@@ -3,7 +3,7 @@ import { ITemporaryMediaObject } from '../typings';
 export default class Mapper {
   public constructor() {}
 
-  public static mapMediaObject(mediaObj: any) : ITemporaryMediaObject {
+  public static mapMediaObject(mediaObj: any): ITemporaryMediaObject {
     const mediaUrlList: any = [];
 
     for (let media of mediaObj) {
@@ -29,6 +29,6 @@ export default class Mapper {
   }
 
   public static mapMediaObjectForImages(media: any) {
-    return {url: media.media_url_https, content_type: "img/jpg" };
+    return { url: media.media_url_https, content_type: 'img/jpg' };
   }
 }
