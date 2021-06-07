@@ -2,7 +2,6 @@ import fetch, { Response } from 'node-fetch';
 
 export default class Request {
   static defaultHeaders = { authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA' };
-  constructor() {}
 
   public static async get(url: string, customHeaders?: Object): Promise<Response> {
     let requestHeaders = this.defaultHeaders;

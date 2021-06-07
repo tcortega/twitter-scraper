@@ -3,8 +3,6 @@ import Mapper from './Mapper';
 import Request from './Request';
 
 export default class Util {
-  public constructor() {}
-
   public static isValidTweetUrl(tweetUrl: string): boolean {
     return /(?:http)?(?:s:\/\/)?(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)\/status\/[0-9]{19}/.test(tweetUrl);
   }

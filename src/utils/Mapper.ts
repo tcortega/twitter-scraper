@@ -1,20 +1,18 @@
 import { ITemporaryMediaObject } from '../typings';
 
 export default class Mapper {
-  public constructor() {}
-
   public static mapMediaObject(mediaObj: any): ITemporaryMediaObject {
     const mediaUrlList: any = [];
 
     for (let media of mediaObj) {
-      if (media.type == 'video') {
+      if (media.type === 'video') {
         return Mapper.mapMediaObjectForVideos(media);
       }
 
       mediaUrlList.push(Mapper.mapMediaObjectForImages(media));
     }
 
-    return <ITemporaryMediaObject>{ isImage: true, media_url: mediaUrlList };
+    return { isImage: true, media_url: mediaUrlList } as ITemporaryMediaObject;
   }
 
   public static mapMediaObjectForVideos(media: any): ITemporaryMediaObject {
@@ -25,7 +23,7 @@ export default class Mapper {
       return b.bitrate - a.bitrate;
     });
 
-    return <ITemporaryMediaObject>{ isVideo: true, media_url: validVariants };
+    return { isVideo: true, media_url: validVariants } as ITemporaryMediaObject;
   }
 
   public static mapMediaObjectForImages(media: any) {
