@@ -1,4 +1,4 @@
-import Util from '../src/utils/Util';
+import { Util } from '../src/utils/Util';
 
 describe('Util.ts', () => {
   it('Should be able to generate a new guestId.', async () => {

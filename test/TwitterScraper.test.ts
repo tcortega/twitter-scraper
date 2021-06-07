@@ -1,4 +1,4 @@
-import TwitterScraper from '../src/libs/TwitterScraper';
+import { TwitterScraper } from '../src/libs/TwitterScraper';
 import { ITweetData } from '../src/typings';
 
 describe('TwitterScraper.ts', () => {
