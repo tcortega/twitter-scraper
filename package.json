@@ -32,7 +32,7 @@
     "trailingComma": "es5"
   },
   "name": "twitterscraper",
-  "description": "Twitter Tweet Scraper & Media Downloader. Scrape info from any tweet.",
+  "description": "Twitter Scraper & Media Downloader. Scrape info from any tweet.",
   "author": "tcortega",
   "module": "dist/twitterscraper.esm.js",
   "repository": {
