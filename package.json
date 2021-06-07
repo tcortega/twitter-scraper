@@ -1,0 +1,64 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 170,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "twitterscraper",
+  "description": "Twitter Tweet Scraper & Media Downloader. Scrape info from any tweet.",
+  "author": "tcortega",
+  "module": "dist/twitterscraper.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcortega/twitter-scraper.git"
+  },
+  "size-limit": [
+    {
+      "path": "dist/twitterscraper.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/twitterscraper.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.11.0",
+    "@types/node-fetch": "^2.5.10",
+    "husky": "^6.0.0",
+    "size-limit": "^4.11.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
