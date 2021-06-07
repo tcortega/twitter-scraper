@@ -1,10 +1,10 @@
-import Util from '../utils/Util';
-import Request from '../utils/Request';
+import { Util } from '../utils/Util';
+import { Request } from '../utils/Request';
 import { TwitterScraperError } from '../errors/TwitterScraperError';
 import { ErrorEnum } from '../enums/ErrorEnum';
 import { ITweetData } from '../typings';
 
-export default class TwitterScraper {
+export class TwitterScraper {
   constructor(private guestId: string) {}
 
   public static async create(): Promise<TwitterScraper> {
