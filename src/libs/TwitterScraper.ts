@@ -5,7 +5,7 @@ import { ErrorEnum } from '../enums/ErrorEnum';
 import { ITweetData } from '../typings';
 
 export default class TwitterScraper {
-  constructor(public guestId: string) {}
+  constructor(private guestId: string) {}
 
   public static async create(): Promise<TwitterScraper> {
     const guestId = await Util.getRandomGuestID();
