@@ -1,103 +1,108 @@
-<!-- # TSDX User Guide
+# Twitter Scraper & Downloader
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+Scrape and download useful information from Twitter.
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
+## No login or password are required
 
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
+This is not an official API support. This is just a scraper which uses Twitter's web API to scrape media and related meta information.
 
-## Commands
+---
+## Content
+- [Features](#features)
 
-TSDX scaffolds your new library inside `/src`.
+## Features
 
-To run TSDX, use:
+- Scrape metadata from any tweet, including video & image urls.
 
-```bash
-npm start # or yarn start
+## To Do
+-   [ ] Add support to scrape user-specific metadata.
+-   [ ] Improve documentation
+
+## Contribution
+
+-   Don't forget about tests
+
+```sh
+yarn test
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+```sh
+yarn build
+```
+## Installation
 
-To do a one-off build, use `npm run build` or `yarn build`.
+twitter-scraper requires [Node.js](https://nodejs.org/) v10+ to run.
 
-To run tests, use `npm test` or `yarn test`.
+**Install from NPM**
 
-## Configuration
-
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle Analysis
-
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
+```sh
+npm i -g @tcortega/twitter-scraper
 ```
 
-### Rollup
+**Install from YARN**
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+```sh
+yarn global add @tcortega/twitter-scraper
+```
 
-### TypeScript
+## USAGE
 
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
+## Module
 
-## Continuous Integration
+### Methods
 
-### GitHub Actions
+```javascript
+.getTweetMeta(tweetUrl) // Scrape tweet metadata from a specific tweet (Promise).
+```
 
-Two actions are added by default:
+## Promise Example
+```javascript
+const { TwitterScraper } = require("@tcortega/twitter-scraper");
 
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
+// Tweet Metadata by tweet url.
+(async () => {
+  try {
+    const twtScraper = await TwitterScraper.create();
+    const tweetMeta = await twtScraper.getTweetMeta("https://twitter.com/Twitter/status/1390396166496522247");
+    console.log(tweetMeta);
+  } catch (error) {
+    console.log(error);
+  }
+})();
+```
 
-## Optimizations
+### Json Output Example
 
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
+#### Tweet Feed
+Example output for the methods: **getTweetMeta**
+```javascript
+// Note that everything inside media_url is usually sorted by the bitrate descendingly
+{
+  id: '1379101721343975426',
+  created_at: 'Mon Apr 05 16:00:47 +0000 2021',
+  description: 'Hey #DisabilityTwitter, thank you so much for your feedback about captioning our videos. We hear you, we see you, we’ve added captions to this @TwitterSpaces announcement. What do you think? We’ll continue to level up our captioning process moving forward. #UntilWeAllBelong https://t.co/E3EK7MZmgR',
+  isMedia: true,
+  favorite_count: 2759,
+  retweet_count: 489,
+  reply_count: 1188,
+  quote_count: 111,
+  isVideo: true,
+  media_url: [
+    {
+      bitrate: 2176000,
+      content_type: 'video/mp4',
+      url: 'https://video.twimg.com/ext_tw_video/1379100778439270410/pu/vid/1280x720/iUvXD6H13QiZF7mp.mp4?tag=12'
+    },
+    {
+      bitrate: 832000,
+      content_type: 'video/mp4',
+      url: 'https://video.twimg.com/ext_tw_video/1379100778439270410/pu/vid/640x360/ilHR1Y8Zl6yRIXOi.mp4?tag=12'
+    },
+    {
+      bitrate: 256000,
+      content_type: 'video/mp4',
+      url: 'https://video.twimg.com/ext_tw_video/1379100778439270410/pu/vid/480x270/KFG8GZ4tSTtjwwuk.mp4?tag=12'
+    }
+  ]
 }
 ```
-
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
-
-## Module Formats
-
-CJS, ESModules, and UMD module formats are supported.
-
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
-
-## Named Exports
-
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
-
-## Including Styles
-
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np). -->
