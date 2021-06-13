@@ -35,6 +35,7 @@
   "name": "@tcortega/twitter-scraper",
   "description": "Twitter Scraper & Media Downloader. Scrape info from any tweet.",
   "author": "tcortega",
+  "keywords": ["twitter-scraper", "twitter scraper", "twitter", "twitter downloader", "download tweet", "tweet media", "tweet", "scraper"],
   "module": "dist/@tcortega/twitter-scraper.esm.js",
   "repository": {
     "type": "git",
