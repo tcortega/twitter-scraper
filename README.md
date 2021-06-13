@@ -9,7 +9,15 @@ This is not an official API support. This is just a scraper which uses Twitter's
 ---
 ## Content
 - [Features](#features)
-
+- [To Do](#to-do)
+- [Contribution](#contribution)
+- [Installation](#installation)
+- [Usage](#usage)
+	- [Module](#module)
+	    - [Methods](#methods)
+	    - [Use with Promises](#promise)
+	    - [Output Example](#json-output-example)
+	        - [Tweet Feed Methods](#tweet-feed)
 ## Features
 
 - Scrape metadata from any tweet, including video & image urls.
@@ -55,7 +63,7 @@ yarn global add @tcortega/twitter-scraper
 .getTweetMeta(tweetUrl) // Scrape tweet metadata from a specific tweet (Promise).
 ```
 
-## Promise Example
+## Promise
 ```javascript
 const { TwitterScraper } = require("@tcortega/twitter-scraper");
 
